@@ -1,7 +1,7 @@
 {
   "name": "portfolio-maker",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "description": "A tool to create a portfolio in 15 minutes or so",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
