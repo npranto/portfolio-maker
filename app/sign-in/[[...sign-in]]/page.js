@@ -9,7 +9,7 @@ const SignInPage = () => {
           PortfolioMaker
         </h1>
 
-        <div className="min-h-[300px]">
+        <div className="min-h-[485px]">
           <SignIn
             path="/sign-in"
             routing="path"

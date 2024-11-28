@@ -11,7 +11,7 @@ const Navigation = () => {
 
   return (
     <header className="bg-indigo-600 text-white py-4 px-8">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="flex items-center justify-between">
         {/* Logo or App Name */}
         <div className="text-2xl font-extrabold">
           <Link
@@ -90,7 +90,7 @@ const Navigation = () => {
       <div
         className={`${
           isMenuOpen
-            ? 'max-h-screen opacity-100 py-4 px-4'
+            ? 'max-h-screen opacity-100 py-4 px-8'
             : 'max-h-0 opacity-0 py-0 px-0'
         } sm:hidden overflow-hidden bg-indigo-700 text-white space-y-4 transition-all duration-500 ease-in-out transform  text-right`}
       >

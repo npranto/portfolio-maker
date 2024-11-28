@@ -12,7 +12,8 @@ module.exports = {
         foreground: 'var(--foreground)',
       },
       fontFamily: {
-        geist: ['var(--font-geist-sans)', 'sans-serif'], // add geistSans as the primary font
+        // add geistSans as the primary font
+        geist: ['var(--font-geist-sans)', 'sans-serif'],
       },
     },
   },

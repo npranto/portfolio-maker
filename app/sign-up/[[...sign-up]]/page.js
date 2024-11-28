@@ -8,12 +8,12 @@ const SignUpPage = () => {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 text-center mb-12">
           PortfolioMaker
         </h1>
-        <div className="min-h-[300px]">
+        <div className="min-h-[645px]">
           <SignUp
             path="/sign-up"
             routing="path"
             signInUrl="/sign-in"
-            forceRedirectUrl="/"
+            forceRedirectUrl="/dashboard"
           />
         </div>
       </div>
