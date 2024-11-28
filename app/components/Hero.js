@@ -1,3 +1,5 @@
+import { SignedIn, SignedOut } from '@clerk/nextjs';
+import Link from 'next/link';
 import React from 'react';
 
 const Hero = () => {
@@ -9,8 +11,15 @@ const Hero = () => {
       <div className="container mx-auto flex flex-col items-center text-center relative z-10">
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
-          Build Your Portfolio in <br /> 15 Minutes
+          PortfolioMaker
         </h1>
+        <hr className="w-16 h-1 bg-yellow-500 mb-8" />
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-normal leading-tight mb-4">
+          Build Your Portfolio in{' '}
+          <strong>
+            <u>15 Minutes</u>
+          </strong>
+        </h2>
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto">
@@ -21,20 +30,31 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Get Started Button */}
-          <a
-            href="#get-started"
-            className="bg-yellow-500 text-black px-6 py-3 rounded font-semibold text-lg hover:bg-yellow-400 transition duration-300"
-          >
-            Get Started
-          </a>
+          <SignedOut>
+            <Link
+              href="/sign-up"
+              className="bg-yellow-500 text-black px-6 py-3 rounded font-semibold text-lg hover:bg-yellow-400 transition duration-300"
+            >
+              Get Started
+            </Link>
 
-          {/* Login Button */}
-          <a
-            href="#login"
-            className="bg-transparent border-2 border-white text-white px-6 py-3 rounded font-semibold text-lg hover:bg-white hover:text-black transition duration-300"
-          >
-            Login
-          </a>
+            {/* Login Button */}
+            <Link
+              href="/sign-in"
+              className="bg-transparent border-2 border-white text-white px-6 py-3 rounded font-semibold text-lg hover:bg-white hover:text-black transition duration-300"
+            >
+              Login
+            </Link>
+          </SignedOut>
+
+          <SignedIn>
+            <Link
+              href="/dashboard"
+              className="bg-yellow-500 text-black px-6 py-3 rounded font-semibold text-lg hover:bg-yellow-400 transition duration-300"
+            >
+              My Dashboard
+            </Link>
+          </SignedIn>
         </div>
       </div>
     </section>
