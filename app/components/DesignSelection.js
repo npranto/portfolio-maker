@@ -2,60 +2,132 @@
 
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { FaLink, FaEye } from 'react-icons/fa'; // Using icons for interactivity
+import { FaLink, FaEye } from 'react-icons/fa';
 
-const designs = [
+const DESIGNS = [
   {
     id: 1,
-    name: 'Eight',
-    reference:
-      'https://elements.envato.com/eight-creative-portfolio-html5-template-UMSPVJ',
-    livePreviewUrl:
-      'https://preview.themeforest.net/item/eight-creative-portfolio-html5-template/UMSPVJ',
-    source: {
-      name: 'Envato',
-    },
-    previewUrl:
-      'https://elements-resized.envatousercontent.com/elements-cover-images/ce4e0565-dfb9-4680-9b9c-1b3fdafdcdd5?w=710&cf_fit=scale-down&q=85&format=auto&s=6e676acd9617b1685cd49af4d31f0661901abf786b0a1c43bcd94204a492d8b4',
-  },
-  {
-    id: 2,
-    name: 'Glint - Portfolio Template',
-    reference: 'https://elements.envato.com/glint-portfolio-template-LHHWTYT',
-    livePreviewUrl:
-      'https://preview.themeforest.net/item/glint-portfolio-template/LHHWTYT',
-    source: {
-      name: 'Envato',
-    },
-    previewUrl:
-      'https://elements-resized.envatousercontent.com/elements-cover-images/13eddf87-e45c-4127-9790-8e4cd68c1e10?w=710&cf_fit=scale-down&q=85&format=auto&s=57b2ed5787ddbb79fb462bfa23c8fb8aed82ca96480dd42b4d206b9bf6e74576',
-  },
-  {
-    id: 3,
-    name: 'Sonex — Minimalistic Portfolio',
-    reference:
-      'https://elements.envato.com/sonex-minimalistic-portfolio-FRJK4T',
-    livePreviewUrl:
-      'https://preview.themeforest.net/item/sonex-minimalistic-portfolio/FRJK4T',
-    source: {
-      name: 'Envato',
-    },
-    previewUrl:
-      'https://elements-resized.envatousercontent.com/elements-cover-images/3d62d3f9-62f2-4360-b980-33af98900c69?w=710&cf_fit=scale-down&q=85&format=auto&s=d526babc120810f2b3da2419f80b5756951eda4e80914408ea02447e1772fac2',
-  },
-  {
-    id: 4,
-    name: 'Adrian - Portfolio Template',
-    reference: 'https://elements.envato.com/adrian-portfolio-template-GLXYZ6R',
-    livePreviewUrl:
-      'https://preview.themeforest.net/item/adrian-portfolio-template/GLXYZ6R',
-    source: {
-      name: 'Envato',
-    },
-    previewUrl:
-      'https://elements-resized.envatousercontent.com/elements-cover-images/cdfac636-1599-4eda-9423-9bc627d18f03?w=710&cf_fit=scale-down&q=85&format=auto&s=af9b6c5b0069d8cc1dacf0690b142ddba4a3db9e0f2ea831951e98ec6db7274d',
+    name: 'Shakib | Personal Portfolio',
+    source: 'Individual Contributor',
+    mainPreviewUrl:
+      '/site-designs/personal-portfolio-shakib/screenshots/l.snapshot.png',
+    liveDemoUrl: 'https://npranto.dev',
+    referenceUrl: null,
+    snapshots: [
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.full-page.png',
+        deviceSize: 'l',
+        tags: ['full-page'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.about.png',
+        deviceSize: 'l',
+        tags: ['about', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.blog.png',
+        deviceSize: 'l',
+        tags: ['blog', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.contact.png',
+        deviceSize: 'l',
+        tags: ['contact', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.education.png',
+        deviceSize: 'l',
+        tags: ['education', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.jumbotron.png',
+        deviceSize: 'l',
+        tags: ['jumbotron', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.navigation.png',
+        deviceSize: 'l',
+        tags: ['navigation', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.projects.png',
+        deviceSize: 'l',
+        tags: ['projects', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.section.work.png',
+        deviceSize: 'l',
+        tags: ['work', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/l.snapshot.png',
+        deviceSize: 'l',
+        tags: ['snapshot'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/m.fullpage.png',
+        deviceSize: 'm',
+        tags: ['full-page'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/m.snapshot.png',
+        deviceSize: 'm',
+        tags: ['snapshot'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.fullpage.png',
+        deviceSize: 's',
+        tags: ['full-page'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.about.png',
+        deviceSize: 's',
+        tags: ['about', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.blog.png',
+        deviceSize: 's',
+        tags: ['blog', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.contact.png',
+        deviceSize: 's',
+        tags: ['contact', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.education.png',
+        deviceSize: 's',
+        tags: ['education', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.jumbotron.png',
+        deviceSize: 's',
+        tags: ['jumbotron', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.navigation.png',
+        deviceSize: 's',
+        tags: ['navigation', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.projects.png',
+        deviceSize: 's',
+        tags: ['projects', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.section.work.png',
+        deviceSize: 's',
+        tags: ['work', 'section'],
+      },
+      {
+        url: '/site-designs/personal-portfolio-shakib/screenshots/s.snapshot.png',
+        deviceSize: 's',
+        tags: ['snapshot'],
+      },
+    ],
   },
 ];
+
 const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalDesign, setModalDesign] = useState(null);
@@ -90,7 +162,7 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
 
       {/* Design Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {designs.map((design) => (
+        {DESIGNS.map((design) => (
           <div
             key={design.id}
             className={`group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl transition-all transform hover:scale-105 hover:shadow-2xl ${
@@ -102,7 +174,7 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
             {/* Thumbnail Image */}
             <img
               onClick={() => handleOpenModal(design)}
-              src={design.previewUrl}
+              src={design.mainPreviewUrl}
               alt={design.name}
               className="w-full h-56 object-cover transition-all duration-300 cursor-pointer"
             />
@@ -110,7 +182,7 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
               <h3 className="text-xl font-semibold text-indigo-800 group-hover:text-indigo-900 transition-colors duration-300">
                 {design.name}
               </h3>
-              <p className="mt-2 text-sm text-gray-500">{design.source.name}</p>
+              <p className="mt-2 text-sm text-gray-500">{design.source}</p>
             </div>
             {/* Select Button */}
             <div className="p-6 pt-0">
@@ -132,9 +204,10 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
 
       {/* Modal for Large Preview */}
       {isModalOpen && modalDesign && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-300 ease-in-out">
-          <div className="bg-white p-8 rounded-2xl shadow-xl max-w-4xl mx-4 transition-transform duration-300 ease-in-out transform scale-110">
-            <div className="flex justify-between items-center mb-6">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-2xl shadow-xl max-w-[95vw] w-full overflow-scroll max-h-[95vh]">
+            {/* Modal Header */}
+            <div className="flex justify-between items-center mb-4">
               <h3 className="text-2xl font-semibold text-indigo-800">
                 {modalDesign.name}
               </h3>
@@ -145,39 +218,36 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
                 Close
               </button>
             </div>
-            <div className="flex justify-center mb-6">
-              {/* Left Pane: Preview Image */}
-              <img
-                src={modalDesign.previewUrl}
-                alt={modalDesign.name}
-                className="w-full max-w-2xl rounded-xl"
-              />
-            </div>
-            {/* Icons and Select Button */}
-            <div className="flex items-center justify-between space-x-4">
-              <div className="flex justify-center items-center space-x-8">
-                <a
-                  href={modalDesign.reference}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-indigo-600 hover:text-indigo-800 text-base sm:text-lg"
-                >
-                  <FaLink size={24} className="inline-block mr-2" />
-                  View Reference
-                </a>
-                <a
-                  href={modalDesign.livePreviewUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-indigo-600 hover:text-indigo-800 text-base sm:text-lg"
-                >
-                  <FaEye size={24} className="inline-block mr-2" />
-                  Live Preview
-                </a>
+
+            {/* Action Buttons */}
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex space-x-4">
+                {modalDesign.referenceUrl && (
+                  <a
+                    href={modalDesign.referenceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-indigo-600 hover:text-indigo-700"
+                  >
+                    <FaLink size={20} className="inline-block mr-1" />
+                    View References
+                  </a>
+                )}
+                {modalDesign.liveDemoUrl && (
+                  <a
+                    href={modalDesign.liveDemoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-indigo-600 hover:text-indigo-700"
+                  >
+                    <FaEye size={20} className="inline-block mr-1" />
+                    Live Preview
+                  </a>
+                )}
               </div>
               <button
                 onClick={() => handleSelectDesign(modalDesign)}
-                className={`py-2 px-6 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 ${
+                className={`py-2 px-6 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-all duration-200 w-full sm:w-auto ${
                   selectedDesign?.id === modalDesign.id
                     ? 'opacity-50 cursor-not-allowed'
                     : ''
@@ -188,6 +258,90 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
                   ? '✔︎ Selected'
                   : 'Select'}
               </button>
+            </div>
+
+            {/* Snapshot Images Grid */}
+            <div className="grid grid-cols-1 place-content-center sm:max-w-[75%] mx-auto gap-6 mt-6">
+              {/* Laptop View */}
+              <div className="bg-indigo-50 bg-opacity-60 p-6 rounded-md mb-6">
+                <h3 className="text-xl font-semibold text-indigo-800 mb-4">
+                  Laptop View
+                </h3>
+                <div className="grid grid-cols-1 gap-6">
+                  {modalDesign.snapshots
+                    .filter((snapshot) =>
+                      snapshot.url.startsWith(
+                        '/site-designs/personal-portfolio-shakib/screenshots/l.',
+                      ),
+                    )
+                    .map((snapshot, index) => (
+                      <div
+                        key={index}
+                        className="border-4 border-indigo-600 rounded-md relative group"
+                      >
+                        <img
+                          src={snapshot.url}
+                          alt={`Snapshot ${index + 1}`}
+                          className="w-full h-auto max-w-full rounded-md transition-all duration-300"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Tablet View */}
+              <div className="bg-green-50 bg-opacity-60 p-6 rounded-md mb-6">
+                <h3 className="text-xl font-semibold text-green-800 mb-4">
+                  Tablet View
+                </h3>
+                <div className="grid grid-cols-1 gap-6">
+                  {modalDesign.snapshots
+                    .filter((snapshot) =>
+                      snapshot.url.startsWith(
+                        '/site-designs/personal-portfolio-shakib/screenshots/m.',
+                      ),
+                    )
+                    .map((snapshot, index) => (
+                      <div
+                        key={index}
+                        className="border-4 border-green-600 rounded-md relative group"
+                      >
+                        <img
+                          src={snapshot.url}
+                          alt={`Snapshot ${index + 1}`}
+                          className="w-full h-auto max-w-full rounded-md transition-all duration-300"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              {/* Mobile View */}
+              <div className="bg-blue-50 bg-opacity-60 p-6 rounded-md">
+                <h3 className="text-xl font-semibold text-blue-800 mb-4">
+                  Mobile View
+                </h3>
+                <div className="grid grid-cols-1 gap-6">
+                  {modalDesign.snapshots
+                    .filter((snapshot) =>
+                      snapshot.url.startsWith(
+                        '/site-designs/personal-portfolio-shakib/screenshots/s.',
+                      ),
+                    )
+                    .map((snapshot, index) => (
+                      <div
+                        key={index}
+                        className="border-4 border-blue-600 rounded-md relative group"
+                      >
+                        <img
+                          src={snapshot.url}
+                          alt={`Snapshot ${index + 1}`}
+                          className="w-full h-auto max-w-full rounded-md transition-all duration-300"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

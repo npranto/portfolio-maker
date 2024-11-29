@@ -50,7 +50,7 @@ const NewSiteFlow = () => {
           onSelectDesign={handleSelectDesign}
         />
       )}
-      {step === 2 && <SiteCustomization design={selectedDesign} />}
+      {step === 2 && <SiteCustomization selectedDesign={selectedDesign} />}
 
       {/* Navigation Buttons */}
       <div className="flex justify-end gap-4 mt-8">
