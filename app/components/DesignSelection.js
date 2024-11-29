@@ -56,13 +56,13 @@ const designs = [
       'https://elements-resized.envatousercontent.com/elements-cover-images/cdfac636-1599-4eda-9423-9bc627d18f03?w=710&cf_fit=scale-down&q=85&format=auto&s=af9b6c5b0069d8cc1dacf0690b142ddba4a3db9e0f2ea831951e98ec6db7274d',
   },
 ];
-
 const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalDesign, setModalDesign] = useState(null);
 
   const handleSelectDesign = (design) => {
     onSelectDesign(design);
+    setIsModalOpen(false); // Close modal after selection
   };
 
   const handleOpenModal = (design) => {
@@ -153,26 +153,41 @@ const DesignSelection = ({ selectedDesign, onSelectDesign }) => {
                 className="w-full max-w-2xl rounded-xl"
               />
             </div>
-            {/* Icons below the image */}
-            <div className="flex justify-center space-x-8">
-              <a
-                href={modalDesign.reference}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-indigo-600 hover:text-indigo-800 text-base sm:text-lg"
+            {/* Icons and Select Button */}
+            <div className="flex items-center justify-between space-x-4">
+              <div className="flex justify-center items-center space-x-8">
+                <a
+                  href={modalDesign.reference}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:text-indigo-800 text-base sm:text-lg"
+                >
+                  <FaLink size={24} className="inline-block mr-2" />
+                  View Reference
+                </a>
+                <a
+                  href={modalDesign.livePreviewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 hover:text-indigo-800 text-base sm:text-lg"
+                >
+                  <FaEye size={24} className="inline-block mr-2" />
+                  Live Preview
+                </a>
+              </div>
+              <button
+                onClick={() => handleSelectDesign(modalDesign)}
+                className={`py-2 px-6 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 ${
+                  selectedDesign?.id === modalDesign.id
+                    ? 'opacity-50 cursor-not-allowed'
+                    : ''
+                }`}
+                disabled={selectedDesign?.id === modalDesign.id}
               >
-                <FaLink size={24} className="inline-block mr-2" />
-                View Reference
-              </a>
-              <a
-                href={modalDesign.livePreviewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-indigo-600 hover:text-indigo-800 text-base sm:text-lg"
-              >
-                <FaEye size={24} className="inline-block mr-2" />
-                Live Preview
-              </a>
+                {selectedDesign?.id === modalDesign.id
+                  ? '✔︎ Selected'
+                  : 'Select'}
+              </button>
             </div>
           </div>
         </div>
@@ -185,10 +200,6 @@ DesignSelection.propTypes = {
   selectedDesign: PropTypes.shape({
     id: PropTypes.number,
   }),
-  onSelectDesign: PropTypes.func.isRequired,
-};
-
-DesignSelection.propTypes = {
   onSelectDesign: PropTypes.func.isRequired,
 };
 
